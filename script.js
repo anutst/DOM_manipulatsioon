@@ -1,181 +1,85 @@
+// DOM manipulatsiooni õppimine, võimalikult lihtsalt, kasside näited
 
-
-
-// KUIDAS LISADA UUT ELEMENTI
-function addNewElement() {
-    //Teen uue div elemendi
-    const newElement = document.createElement('div'); //Uus div element
-    newElement.innerText = 'Im a new element';
-    playground.appendChild(newElement); // Uus element läheb playground diviga kokku
-}
-
-
-
-// KUIDAS KUSTUTADA ELEMENTE
-
-const temporaryElement = document.createElement('p');
-temporaryElement.textContent = 'See tekst on nähtaval';
-playground.append(temporaryElement);
-
-//Variant 1: temporaryElement.remove();
-
-//Variant 2: (pead teadma parent elementi) playground.removeChild(temporaryElement);
-
-const fruitBasket = document.createElement('div');
-fruitBasket.innerHTML = `
-<p>Viinamarjad</p>
-<p>Maasikad</p>
-<p>Vaarikad</p>
-`;
-// näha on kõiki fruitbasketi asju 
-
-playground.append(fruitBasket);
-
-//Nüüd eemaldame fruitbasketi sisu
-while (fruitBasket.firstChild) {
-    fruitBasket.removeChild(fruitBasket.firstChild);
-}
-
-// ATRIBUUTIDEGA TÖÖTAMINE 
-
-const magicWand = document.createElement('div');
-magicWand.setAttribute('id', 'wand1');
-magicWand .setAttribute('class', 'magical-item wand');
-magicWand.textContent  = 'Magic Wand';
-
-console.log(magicWand.id);
-magicWand.id = 'wand3';
-console.log(magicWand.id);
-
-//  DATA ATRIBUUTIDEGA TÖÖTAMINE
-
-const secretScroll = document.createElement('div');
-
-secretScroll.id = 'secretScroll';
-secretScroll.dataset.spellType = 'invinsibility';
-secretScroll.dataset.components = 'moonlight,shadow essense';
-secretScroll.textContent = 'Ancient Spell Scroll';
-
-playground.append(secretScroll);
-
-console.log('Spell type:', secretScroll.dataset.spell);
-console.log('Components:', secretScroll.dataset.components.split(','));
-
-//  MANIPULATING CLASSES 
-
-const shapeshifter = document.createElement('div');
-shapeshifter.textContent = 'Shapeshifter';
-playground.append(shapeshifter);
-
-shapeshifter.classList.add('magical', 'creature');
-console.log('Initial classes:', shapeshifter.className);
-
-shapeshifter.classList.remove('creature');
-shapeshifter.classList.add('humanoid');
-
-console.log('Updated classes: ', shapeshifter.className);
-
-shapeshifter.classList.toggle('invisible');
-console.log(shapeshifter.classList.contains('invisible'));
-
-// EVENT HANDLING
-
-const magicButton = document.createElement('button');
-magicButton.textContent = 'Nupuke';
-playground.append(magicButton);
-
-magicButton.addEventListener('click', () => {
-    alert('Üllatus!');
-})
-
-
+// 1.  'playground' element HTMList
 const playground = document.getElementById('playground');
-//Tekst playground elemendi sisse
-console.log(playground.innerText);
 
-// KUIDAS LISADA UUT ELEMENTI
+// 2. Funktsioon uue elemendi lisamiseks
 function addNewElement() {
-    //Teen uue div elemendi
-    const newElement = document.createElement('div'); //Uus div element
-    newElement.innerText = 'Im a new element';
-    playground.appendChild(newElement); // Uus element läheb playground diviga kokku
+    // 3. Loon uue 'div' elemendi
+    const newElement = document.createElement('div');
+    newElement.innerText = 'Minu kassi nimi on Priidik'; // 4. Lisan elemendile teksti
+    playground.appendChild(newElement); // 5. Lisan uue elemendi 'playground' div-i
 }
 
-
-
-// KUIDAS KUSTUTADA ELEMENTE
-
+// 6. Näide elemendi loomisest ja lisamisest
 const temporaryElement = document.createElement('p');
-temporaryElement.textContent = 'See tekst on nähtaval';
-playground.append(temporaryElement);
+temporaryElement.textContent = 'Kas peal on kass või peal on kass?'; // 7. Lisan teksti, ajutise
+playground.append(temporaryElement); // 8. Lisan 'temporaryElement' 'playground' div-i
 
-//Variant 1: temporaryElement.remove();
+// Variant 1: Elemendi eemaldamine
+// temporaryElement.remove(); 
 
-//Variant 2: (pead teadma parent elementi) playground.removeChild(temporaryElement);
+// Variant 2: Eemaldan elemendi, teades selle parent elementi
+// playground.removeChild(temporaryElement);
 
-const fruitBasket = document.createElement('div');
-fruitBasket.innerHTML = `
-<p>Viinamarjad</p>
-<p>Maasikad</p>
-<p>Vaarikad</p>
+// 9. Lisan uue 'div' elemendi, millel on erinevad read
+const catBasket = document.createElement('div');
+catBasket.innerHTML = `
+<p>Pärsia kass</p>
+<p>Siiami kass</p>
+<p>Maine Coon kass</p>
 `;
-// näha on kõiki fruitbasketi asju 
+playground.append(catBasket); // 10. Lisan 'catBasket' 'playground' div-i
 
-playground.append(fruitBasket);
-
-//Nüüd eemaldame fruitbasketi sisu
-while (fruitBasket.firstChild) {
-    fruitBasket.removeChild(fruitBasket.firstChild);
+// 11. Eemaldan 'catBasket' sisu
+while (catBasket.firstChild) {
+    catBasket.removeChild(catBasket.firstChild); // 12. Eemaldan kõik childid
 }
 
-// ATRIBUUTIDEGA TÖÖTAMINE 
+// 13. Atribuutide määramine ja muutmine 
+const catToy = document.createElement('div');
+catToy.setAttribute('id', 'toy1'); // 14. Määran 'id' atribuudi
+catToy.setAttribute('class', 'cat-item toy'); // 15. Määran 'class' atribuudi
+catToy.textContent = 'Kassi mänguasi'; // 16. Lisan teksti
 
-const magicWand = document.createElement('div');
-magicWand.setAttribute('id', 'wand1');
-magicWand .setAttribute('class', 'magical-item wand');
-magicWand.textContent  = 'Magic Wand';
+console.log(catToy.id); // 17. Kuvan 'id' väärtuse konsoolis
+catToy.id = 'toy2'; // 18. Muudan 'id' väärtust
+console.log(catToy.id); // 19. Kuvan uue 'id' väärtuse konsoolis
 
-console.log(magicWand.id);
-magicWand.id = 'wand3';
-console.log(magicWand.id);
+// 20. Data atribuutide määramine ja lugemine 
+const catBed = document.createElement('div');
+catBed.id = 'catBed'; // 21. Määran 'id' atribuudi
+catBed.dataset.size = 'large'; // 22. Määran data atribuudi 'size'
+catBed.dataset.color = 'black'; // 23. Määran data atribuudi 'color'
+catBed.textContent = 'Kasside voodi'; // 24. Lisan teksti
 
-//  DATA ATRIBUUTIDEGA TÖÖTAMINE
+playground.append(catBed); // 25. Lisan 'catBed' 'playground' div-i
 
-const secretScroll = document.createElement('div');
+console.log('Size:', catBed.dataset.size); // 26. Kuvan data atribuudi 'size'
+console.log('Color:', catBed.dataset.color); // 27. Kuvan data atribuudi 'color'
 
-secretScroll.id = 'secretScroll';
-secretScroll.dataset.spellType = 'invinsibility';
-secretScroll.dataset.components = 'moonlight,shadow essense';
-secretScroll.textContent = 'Ancient Spell Scroll';
+// 28. Klasside manipuleerimine
+const catShelf = document.createElement('div');
+catShelf.textContent = 'Kasside riiul';
+playground.append(catShelf); // 29. Lisan 'catShelf' 'playground' div-i
 
-playground.append(secretScroll);
+catShelf.classList.add('cat-shelf', 'wooden'); // 30. Lisan klassid 'cat-shelf' ja 'wooden'
+console.log('Initial classes:', catShelf.className); // 31. Kuvan algsed klassid
 
-console.log('Spell type:', secretScroll.dataset.spell);
-console.log('Components:', secretScroll.dataset.components.split(','));
+catShelf.classList.remove('wooden'); // 32. Eemaldan klassi 'wooden'
+catShelf.classList.add('modern'); // 33. Lisan klassi 'modern'
 
-//  MANIPULATING CLASSES 
+console.log('Updated classes:', catShelf.className); // 34. Kuvan uuendatud klassid konsoolis
 
-const shapeshifter = document.createElement('div');
-shapeshifter.textContent = 'Shapeshifter';
-playground.append(shapeshifter);
+catShelf.classList.toggle('hidden'); // 35. Kui klassi 'hidden' ei ole, siis lisan selle; kui on, siis eemaldan
+console.log(catShelf.classList.contains('hidden')); // 36. Vaatan, kas klass 'hidden' on olemas
 
-shapeshifter.classList.add('magical', 'creature');
-console.log('Initial classes:', shapeshifter.className);
+// 37. Üritused (nupu klikkimine)
+const catButton = document.createElement('button');
+catButton.textContent = 'Ära vajuta siia'; // 38. Lisan nupule teksti
+playground.append(catButton); // 39. Lisan 'catButton' 'playground' div-i
 
-shapeshifter.classList.remove('creature');
-shapeshifter.classList.add('humanoid');
-
-console.log('Updated classes: ', shapeshifter.className);
-
-shapeshifter.classList.toggle('invisible');
-console.log(shapeshifter.classList.contains('invisible'));
-
-// EVENT HANDLING
-
-const magicButton = document.createElement('button');
-magicButton.textContent = 'Nupuke';
-playground.append(magicButton);
-
-magicButton.addEventListener('click', () => {
-    alert('Üllatus!');
-})
+// 40. Lisan nupule klikkimise
+catButton.addEventListener('click', () => {
+    alert('Hoiatasin, nüüd su arvuti on täis kasse.'); // Näitab teadet, kui nuppu klikitakse
+});

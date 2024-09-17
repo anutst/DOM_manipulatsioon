@@ -1,0 +1,31 @@
+/* Katsetan stiile, et lehekülg ei oleks üksluine */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* playground div stiil */
+#playground {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 20px;
+}
+
+/* Nupu stiil */
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Nupu hoverdamine */
+button:hover {
+    background-color: #45a049; 
+}
