@@ -1,31 +1,31 @@
-/* Katsetan stiile, et lehekülg ei oleks üksluine */
-
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+  font-family: "Calibri", Times, serif;
+  margin: 20px;
+  background-color: #f8f8f8;
 }
 
-/* playground div stiil */
-#playground {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 20px;
-    margin: 20px;
+h1 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-/* Nupu stiil */
-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+h2 {
+  color: #555;
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 
-/* Nupu hoverdamine */
-button:hover {
-    background-color: #45a049; 
+ol {
+  list-style-type: decimal;
+  padding-left: 20px;
+}
+
+li {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
