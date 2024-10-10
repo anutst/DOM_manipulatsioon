@@ -1,1 +1,0 @@
-// HTMLI ON VAJA SIIN KA TEHA ERALDI ja äkki pilti ka 
